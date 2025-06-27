@@ -3,7 +3,7 @@ resource "vsphere_virtual_machine" "vm" {
   count           = 3
   name            = "c500k8sn${count.index + 1}"
   folder          = "terraform-k8s-folder"
-  resource_pool_id = data.vsphere_resource_pool.pool[count.index].id
+  resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore[count.index].id
   num_cpus         = 2
   memory           = 2048
@@ -36,14 +36,15 @@ resource "vsphere_virtual_machine" "vm" {
         host_name = "c500k8sn${count.index + 1}"
         domain    = "dellpc.in"
       }
-      
+
       network_interface {
         ipv4_address = var.ip_addresses[count.index]
         ipv4_netmask = 24
+        dns_domain   = "dellpc.in"
       }
-      
-      ipv4_gateway    = var.gateway
-      dns_server_list = ["192.168.1.225", "8.8.4.4"]
+
+      ipv4_gateway = var.gateway
+      dns_server_list = var.dns_servers
       dns_suffix_list = ["dellpc.in"]
     }
   }

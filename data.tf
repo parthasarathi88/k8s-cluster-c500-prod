@@ -5,8 +5,7 @@ data "vsphere_datacenter" "dc" {
 
 # Resource pool
 data "vsphere_resource_pool" "pool" {
-  count = 3
-  name  = var.resource_pools[count.index]
+  name  = var.resource_pool
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 

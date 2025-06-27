@@ -1,20 +1,39 @@
-# Terraform vCenter 3 VMs
+# Terraform vCenter Ubuntu 22 VMs
 
-This project uses Terraform to create three virtual machines (VMs) in a vCenter environment using a specified Ubuntu template. Each VM will have one network interface card (NIC) and will be configured according to the provided specifications.
+This project uses Terraform to create three Ubuntu 22.04 virtual machines (VMs) in a vCenter environment. Each VM has static IP configuration and cloud-init customization.
 
 ## Project Structure
 
 ```
-terraform-vcenter-3vms
+k8s-cluster-c500-prod/
 ├── main.tf            # Main configuration for creating VMs
 ├── variables.tf       # Input variables for the configuration
 ├── outputs.tf         # Outputs of the Terraform configuration
 ├── provider.tf        # vCenter provider configuration
+├── data.tf           # Data sources for vCenter resources
 ├── versions.tf        # Required Terraform and provider versions
-├── template
+├── terraform.tfvars   # Variable values (vCenter credentials)
+├── template/
 │   └── cloud_init.tpl # Cloud-Init template for VM customization
 └── README.md          # Project documentation
 ```
+
+## Configuration
+
+### VM Specifications
+- **Template**: `templates/ubuntu22` (Ubuntu 22.04 cloud-init OVA)
+- **Network**: `VM Network`
+- **IP Addresses**: 
+  - VM1: 192.168.10.141
+  - VM2: 192.168.10.142
+  - VM3: 192.168.10.145
+- **Gateway**: 192.168.10.1
+- **DNS**: 192.168.10.1, 8.8.8.8
+
+### User Configuration
+- **User**: partha (with sudo privileges)
+- **Password**: Kukapilla@1269
+- **Default ubuntu user**: SSH key authentication enabled (if SSH key provided)
 
 ## Prerequisites
 
