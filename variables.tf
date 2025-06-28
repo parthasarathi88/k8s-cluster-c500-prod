@@ -13,7 +13,7 @@ variable "vm_names" {
 variable "template_name" {
   description = "Name of the VM template to use"
   type        = string
-  default     = "templates/centos"  # Using existing CentOS template with VMware customization
+  default     = "templates/centos7"  # Using existing CentOS template with VMware customization
 }
 
 variable "network_name" {

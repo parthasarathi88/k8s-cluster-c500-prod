@@ -1,4 +1,3 @@
-
 resource "vsphere_virtual_machine" "vm" {
   count           = 3
   name            = "c500k8sn${count.index + 1}"
@@ -6,7 +5,7 @@ resource "vsphere_virtual_machine" "vm" {
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore[count.index].id
   num_cpus         = 2
-  memory           = 2048
+  memory           = 4096
   guest_id         = data.vsphere_virtual_machine.template.guest_id
   
   wait_for_guest_ip_timeout      = 5
