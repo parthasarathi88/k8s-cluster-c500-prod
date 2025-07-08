@@ -1,0 +1,53 @@
+# Packer .gitignore
+# =================
+
+# Packer cache directory
+packer_cache/
+
+# Build artifacts
+output-*/
+builds/
+*.box
+
+# Packer variable files (may contain sensitive data)
+*.pkrvars.hcl
+*.auto.pkrvars.hcl
+packer.pkrvars.hcl
+
+# Packer logs
+*.log
+packer.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# ISO files and other large artifacts
+*.iso
+*.vmdk
+*.ova
+*.ovf
+
+# SSH keys used during build
+*.pem
+*.key
+*.pub
+id_rsa*
+
+# Credentials and secrets
+credentials.json
+secrets.json
+passwords.txt
+secrets.txt
+
+# Cloud-init artifacts
+cloud-init-*.log
+user-data.sensitive
+
+# Build metadata
+manifest.json
+build-metadata.json
+
+# OS specific files
+.DS_Store
+Thumbs.db

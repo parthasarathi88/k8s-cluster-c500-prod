@@ -1,6 +1,139 @@
-terraform.tfvars
+# Terraform .gitignore - Comprehensive Protection for Sensitive Files
+# =====================================================================
+
+# Terraform state files (contain sensitive infrastructure details)
+*.tfstate
+*.tfstate.*
 terraform.tfstate
 terraform.tfstate.backup
+
+# Terraform variable files (contain passwords, keys, and sensitive config)
+*.tfvars
+*.tfvars.json
+terraform.tfvars
+
+# Local .terraform directories and cache
+**/.terraform/*
 .terraform/
 .terraform.lock.hcl
-packer
+
+# Terraform plan files (may contain sensitive data)
+*.tfplan
+*.plan
+original.plan
+staging.plan
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files (often contain sensitive local overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Environment-specific files
+.env
+.env.local
+.env.*.local
+
+# vCenter and infrastructure credentials
+vcenter_credentials.json
+infraconfig.json
+
+# SSH keys and certificates
+*.pem
+*.key
+*.pub
+id_rsa*
+ssh_keys/
+
+# IDE and Editor files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files and legacy directories
+*.backup
+*.bak
+legacy-backup-*/
+
+# Log files (may contain sensitive information)
+*.log
+configure-vm.log
+validate_vm_config.log
+terraform.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Packer builds and cache
+packer/*/packer_cache/
+packer/*/output-*/
+packer/builds/
+
+# Script outputs that might contain sensitive data
+script_output.txt
+vm_details.txt
+ip_mappings.txt
+
+# Database and config files that might be created
+config.json
+secrets.json
+credentials.json
+passwords.txt
+secrets.txt
+
+# Application specific ignores
+node_modules/
+*.pyc
+__pycache__/
+
+# Custom project files with sensitive data
+vm_passwords.txt
+infrastructure_details.txt
+deployment_notes.txt
+
+# Ansible and configuration management files
+ansible_vault_password
+inventory.yml
+hosts.yml
+group_vars/all/vault.yml
+host_vars/*/vault.yml
+
+# Kubernetes and container files
+kubeconfig
+*.kubeconfig
+docker-compose.override.yml
+.dockerenv
+
+# Monitoring and observability
+prometheus.yml
+grafana.ini
+alertmanager.yml
+
+# Additional sensitive patterns
+*.secret
+*.private
+*_secret.*
+*_private.*
+sensitive_*
+confidential_*

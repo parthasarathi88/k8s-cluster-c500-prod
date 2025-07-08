@@ -1,0 +1,73 @@
+# Environment-specific .gitignore
+# ===============================
+
+# Terraform state files (contain environment-specific sensitive data)
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Variable files with sensitive configuration
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+*.tfvars.json
+
+# Plan files
+*.tfplan
+*.plan
+
+# Local terraform cache
+.terraform/
+.terraform.lock.hcl
+
+# Environment-specific logs
+terraform.log
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.backup
+
+# SSH keys and certificates
+*.pem
+*.key
+*.pub
+id_rsa*
+
+# Environment-specific credentials
+vcenter_credentials.json
+infraconfig.json
+config.json
+secrets.json
+credentials.json
+passwords.txt
+secrets.txt
+
+# Environment-specific deployment artifacts
+vm_passwords.txt
+infrastructure_details.txt
+deployment_notes.txt
+script_output.txt
+vm_details.txt
+ip_mappings.txt
+
+# Cloud-init and provisioning artifacts
+cloud-init-*.log
+provisioning-*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Environment files
+.env
+.env.local
+.env.*.local

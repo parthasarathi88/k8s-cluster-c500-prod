@@ -22,13 +22,13 @@ k8s-cluster-c500-prod/
 
 ### VM Specifications
 - **Template**: `templates/ubuntu22` (Ubuntu 22.04 cloud-init OVA)
-- **Network**: `VM Network`
+- **Network**: `192.168.1.1`
 - **IP Addresses**: 
-  - VM1: 192.168.10.141
-  - VM2: 192.168.10.142
-  - VM3: 192.168.10.145
-- **Gateway**: 192.168.10.1
-- **DNS**: 192.168.10.1, 8.8.8.8
+  - VM1: 192.168.1.141
+  - VM2: 192.168.1.142
+  - VM3: 192.168.1.145
+- **Gateway**: 192.168.1.1
+- **DNS**: 192.168.1.225, 8.8.4.4
 
 ### User Configuration
 - **User**: partha (with sudo privileges)
