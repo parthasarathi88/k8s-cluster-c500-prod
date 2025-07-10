@@ -175,6 +175,13 @@ configure_vm() {
         ip addr show | grep -E '^[0-9]+:' | awk '{print \$2}' | tr -d ':'
         echo '============================'
     "
+
+    # 8. Extend root partition
+    log "Extending root partition (if applicable)..."
+    execute_remote "
+        parted /dev/sda resizepart 2 100% && partprobe /dev/sda && pvresize /dev/sda2 && lvextend -l +100%FREE /dev/mapper/centos-root && xfs_growfs /dev/mapper/centos-root
+        echo 'Root partition extended'
+    "
     
     log "Configuration completed successfully for $VM_NAME ($IP_ADDRESS)"
     warning "Note: A reboot is recommended to apply all changes (especially GRUB modifications)"
